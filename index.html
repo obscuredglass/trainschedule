@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+  <title>Employee Tracker</title>
+</head>
+
+<body>
+
+  <header class="jumbotron jumbotron-fluid bg-success text-light">
+    <div class="container-fluid text-center">
+      <h1 class="display-4">Employee Time Sheet</h1>
+    </div>
+  </header>
+
+  <main class="container-fluid">
+    <div class="row">
+      <!-- left column -->
+      <aside class="col-12 col-md-3">
+        <div class="card">
+          <h4 class="card-header bg-success text-light">
+            Find your train.
+          </h4>
+          <div class="card-body">
+            <!-- start form -->
+            <form id="employee-form">
+              <!-- name -->
+              <div class="form-group">
+                <label for="name-input">Train Name</label>
+                <input class="form-control" type="text" id="name-input" placeholder="Your Name" />
+              </div>
+              <!-- role -->
+              <div class="form-group">
+                <label for="role-input">Employee Role</label>
+                <input class="form-control" type="text" id="role-input" placeholder="Your Role" />
+              </div>
+              <!-- start date (MM/DD/YYYY) -->
+              <div class="form-group">
+                <label for="start-input">Employee Start Date (MM/DD/YYYY)</label>
+                <input class="form-control" type="date" id="start-input" placeholder="Your Start Date (MM/DD/YYYY)" />
+              </div>
+              <!-- monthly rate -->
+              <div class="form-group">
+                <label for="rate-input">Employee Monthly Rate</label>
+                <input class="form-control" type="number" id="rate-input" placeholder="Your Monthly Rate" />
+              </div>
+              <!-- submit button -->
+              <button class="btn btn-block btn-success" type="submit">Add Employee</button>
+            </form>
+            <!-- end form -->
+          </div>
+        </div>
+      </aside>
+      <!-- left column end -->
+
+      <!-- right column -->
+      <section class="col-12 col-md-9">
+        <!-- create card -->
+        <div class="card">
+          <h4 class="card-header bg-success text-light">
+            Employee Data
+          </h4>
+          <div class="card-body">
+            <!-- employee data table -->
+            <table class="table">
+              <!-- define table headers -->
+               <thead>
+                 <tr>
+                   <th scope="col">Train Name</th>
+                   <th scope="col">Destination</th>
+                   <th scope="col">First Train Time</th>
+                   <th scope="col">Frequency</th>
+                   <th scope="col">Next Train Time</th>
+                 </tr>
+               </thead>
+               <tbody>
+                 <!-- content will be written here -->
+               </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+      <!-- right column end -->
+    </div>
+  </main>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
+  <script src="assets/javascript.js"></script>
+</body>
+
+</html>
