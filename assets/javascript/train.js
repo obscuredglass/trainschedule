@@ -10,13 +10,15 @@ $(document).ready(function() {
   };
   firebase.initializeApp(config);
 
-var database = firebase.database();
+  var database = firebase.database();
 
 
 
 // set up event listener for form submit to capture our employee data
 // $("#theTrain-form").on("submit", function(event) {
 //   event.preventDefault();
+
+// capture input
 
 $("#subit").on("click". function() {
 
@@ -33,9 +35,7 @@ $("#subit").on("click". function() {
     dest: dest,
     time: time,
     freq: freq,
-    
-    
-    
+    timeAdded: firebase.database.ServerValue.TIMESTAMP   
   });
   
   $("input").val('');
@@ -43,7 +43,8 @@ $("#subit").on("click". function() {
 
 });
 
-  // console.log(trainDataInput);
+
+
 
   
 
@@ -64,6 +65,37 @@ database.ref().on('child_added', function(childSnapshot) {
   console.log("Destination: " + dest);
   console.log("Time: " + time);
   console.log("Frequency: " + freq);
+
+  // convert train time
+
+  var freq = parseInt(freq);
+
+  // need current time
+  var currentTime = moment();
+  console.log("Current Time: " + moment().format("HH:mm"));
+
+  var dConverted = moment(childSnapshot.val().time, "HH:mm").subtract(1, "years");
+  console.log("Date Converted: " + dateConverted);
+  var TrainTime = moment(dConverted).format("HH:mm");
+  console.log("Train Time: " + trainTime);
+
+  var tConverted = moment(trainTime, "HH:mm").subtract(1, "years");
+  var tDifference = moment().diff(moment(tConverted), "minutes");
+  console.log("Difference in Time: " + tDifference);
+
+  var tRemainder = tDifference % freq;
+  console.log("Time Remaining: " + rRemainder);
+
+  var minutesAway = frew - tRemainder;
+  console.log("Minutes Until the Next Train:" + minutesAway);
+
+  var nextTrain = moment().add(minutesAway, "minutes");
+  console.log("Arrival Time: " + moment(nextTrain).format("HH:mm A"));
+
+
+
+
+
 
 
  // train data to append to table
