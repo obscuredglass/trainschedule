@@ -9,8 +9,11 @@ var config = {
 firebase.initializeApp(config);
 
 var database = firebase.database();
+
+
+
 // set up event listener for form submit to capture our employee data
-$("#employee-form").on("submit", function(event) {
+$("#theTrain-form").on("submit", function(event) {
   event.preventDefault();
 
   // gather our form data
@@ -60,3 +63,5 @@ database.ref().on('child_added', function(childSnapshot) {
   // lastly, append entire table row you created to $("tbody")
   $("tbody").append($tr);
 });
+
+setInterval(timeUpdater, 6000);
