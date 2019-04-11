@@ -69,6 +69,11 @@ database.ref().on('child_added', function(childSnapshot) {
  // train data to append to table
 
   $("#currentTime").text(currentTime);
+  $("trainTable").append(
+    "<tr><td id='nameDisplay'>" + childSnapshot.val().name +
+    "</td><td id='destDisplay'>" + childSnapshot.val().dest +
+    "</td><td id='freqDisplay'>" + moment(nextTrain).format("HH:mm") +
+    "</td><td id='awayDisplay'>" + minsAway + ' minutes until arrival' + "</td></tr>")),
 
   function(errorObject){
     console.log("Read failed: " + errorObject.code)
