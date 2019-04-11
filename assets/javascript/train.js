@@ -1,14 +1,14 @@
 $(document).ready(function() {
 
-var config = {
-  apiKey: "AIzaSyAkq55gUH-o7ym5OKPswl0B_p-v7xbz6Bk",
-  authDomain: "classwork-8bf8d.firebaseapp.com",
-  databaseURL: "https://classwork-8bf8d.firebaseio.com",
-  projectId: "classwork-8bf8d",
-  storageBucket: "classwork-8bf8d.appspot.com",
-  messagingSenderId: "654627669791"
-};
-firebase.initializeApp(config);
+  var config = {
+    apiKey: "AIzaSyCN8AYtsFVZfiLVVsOjUVHvsx-BIaL26Gw",
+    authDomain: "train-scheduler-8cf29.firebaseapp.com",
+    databaseURL: "https://train-scheduler-8cf29.firebaseio.com",
+    projectId: "train-scheduler-8cf29",
+    storageBucket: "train-scheduler-8cf29.appspot.com",
+    messagingSenderId: "1028160556782"
+  };
+  firebase.initializeApp(config);
 
 var database = firebase.database();
 
