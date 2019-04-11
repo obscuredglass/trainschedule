@@ -14,16 +14,16 @@ $("#employee-form").on("submit", function(event) {
   event.preventDefault();
 
   // gather our form data
-  var employeeDataInput = {
+  var trainDataInput = {
     name: $("#name-input").val().trim(),
-    role: $("#role-input").val().trim(),
+    role: $("#destination-input").val().trim(),
     startDate: $("#start-input").val().trim(),
-    rate: $("#rate-input").val().trim()
+    rate: $("#leave-input").val().trim()
   }
 
-  console.log(employeeDataInput);
+  console.log(trainDataInput);
 
-  database.ref().push(employeeDataInput);
+  database.ref().push(trainDataInput);
 });
 
 
@@ -34,25 +34,25 @@ database.ref().on('child_added', function(childSnapshot) {
   console.log(childSnapshot.val());
 
   // save reference to data in childSnapshot
-  var employeeData = childSnapshot.val();
+  var trainData = childSnapshot.val();
 
 
-  var startDateConverted = moment(employeeData.startDate, "YYY-MM-DD");
+  var startDateConverted = moment(trainData.startDate, "YYY-MM-DD");
   var totalMonthsWorked = moment().diff(startDateConverted, "months");
 
-  var totalBilled = totalMonthsWorked * employeeData.rate;
+  var totalBilled = totalMonthsWorked * trainData.rate;
 
   // create a table row
   var $tr = $('<tr>');
 
   // create <td> tags for each column (6)
   // add content from childSnapshot.val() to corresponding <td> tags (skip total billed and months worked)
-  var $tdName = $('<td>').text(employeeData.name);
-  var $tdRole = $('<td>').text(employeeData.role);
-  var $tdStart = $('<td>').text(employeeData.startDate);
-  var $tdMonthsWorked = $('<td>').text(employeeData.totalMonthsWorked);
-  var $tdRate = $('<td>').text(employeeData.rate);
-  var $tdTotalBilled = $('<td>').text(employeeData.totalBilled);
+  var $tdName = $('<td>').text(trainData.name);
+  var $tdRole = $('<td>').text(trainData.role);
+  var $tdStart = $('<td>').text(trainData.startDate);
+  var $tdMonthsWorked = $('<td>').text(trainData.totalMonthsWorked);
+  var $tdRate = $('<td>').text(trainData.rate);
+  var $tdTotalBilled = $('<td>').text(trainData.totalBilled);
 
   // append td tags to table row you created above
   $tr.append($tdName, $tdRole, $tdStart, $tdMonthsWorked, $tdRate, $tdTotalBilled);

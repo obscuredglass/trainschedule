@@ -8,14 +8,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-  <title>Employee Tracker</title>
+  <title>Train Tracker</title>
 </head>
 
 <body>
 
   <header class="jumbotron jumbotron-fluid bg-success text-light">
     <div class="container-fluid text-center">
-      <h1 class="display-4">Employee Time Sheet</h1>
+      <h1 class="display-4">Travel By Train With Us</h1>
     </div>
   </header>
 
@@ -33,25 +33,25 @@
               <!-- name -->
               <div class="form-group">
                 <label for="name-input">Train Name</label>
-                <input class="form-control" type="text" id="name-input" placeholder="Your Name" />
+                <input class="form-control" type="text" id="name-input" placeholder="Train Name" />
               </div>
               <!-- role -->
               <div class="form-group">
-                <label for="role-input">Employee Role</label>
-                <input class="form-control" type="text" id="role-input" placeholder="Your Role" />
+                <label for="destination-input">Destination</label>
+                <input class="form-control" type="text" id="destination-input" placeholder="Where Are You Going?" />
               </div>
               <!-- start date (MM/DD/YYYY) -->
               <div class="form-group">
-                <label for="start-input">Employee Start Date (MM/DD/YYYY)</label>
+                <label for="start-input">Date Leaving</label>
                 <input class="form-control" type="date" id="start-input" placeholder="Your Start Date (MM/DD/YYYY)" />
               </div>
               <!-- monthly rate -->
               <div class="form-group">
-                <label for="rate-input">Employee Monthly Rate</label>
-                <input class="form-control" type="number" id="rate-input" placeholder="Your Monthly Rate" />
+                <label for="leave-input">Time to Leave By</label>
+                <input class="form-control" type="number" id="leave-input" placeholder="00:00 AM/PM" />
               </div>
               <!-- submit button -->
-              <button class="btn btn-block btn-success" type="submit">Add Employee</button>
+              <button class="btn btn-block btn-success" type="submit">Find Your Train</button>
             </form>
             <!-- end form -->
           </div>
@@ -95,7 +95,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
-  <script src="assets/javascript.js"></script>
+  <script src="assets/javascript/train.js"></script>
 </body>
 
 </html>
