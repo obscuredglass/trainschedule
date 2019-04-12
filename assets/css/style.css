@@ -1,0 +1,14 @@
+.container {
+  background: #C0C0C0;
+}
+
+h1 {
+  font-family: 'Racing Sans One', cursive;
+}
+
+
+.panel-body {
+  background-color: #99b3ff;
+  font-size: 20px;
+  font-family: 'Dosis', sans-serif;
+}
