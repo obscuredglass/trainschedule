@@ -9,14 +9,12 @@ $(document).ready(function(){
     messagingSenderId: "654627669791"
   };
   firebase.initializeApp(config);
-  //VARIABLES=========================================================
+  // variables
   var database = firebase.database();
-  //CONVERT TRAIN TIME================================================
-  //var currentTime = moment();
-  //console.log("Current Time: " + currentTime);
-  //FUNCTIONS=========================================================
+
+  // functions
   
-  // CAPTURE BUTTON CLICK
+  // capture info button
   $("#submit").on("click", function() {
   
   //VALUES FOR EACH VARIABLE IN HTML
@@ -25,7 +23,7 @@ $(document).ready(function(){
       var time = $('#time-input').val().trim();
       var freq = $('#freq-input').val().trim();
   
-  // PUSH NEW ENTRY TO FIREBASE
+  // push to firebase
     database.ref().push({
       name: name,
       dest: dest,
@@ -38,7 +36,7 @@ $(document).ready(function(){
       return false;
   });
   
-  //ON CLICK CHILD FUNCTION
+  // child added function
   database.ref().on("child_added", function(childSnapshot){
     // console.log(childSnapshot.val());
     var name = childSnapshot.val().name;
@@ -52,13 +50,13 @@ $(document).ready(function(){
     console.log("Frequency: " + freq);
     //console.log(moment().format("HH:mm"));
   
-  //CONVERT TRAIN TIME================================================
+  // convert train timne
     var freq = parseInt(freq);
-    //CURRENT TIME
+    // current time stuff
     var currentTime = moment();
     console.log("CURRENT TIME: " + moment().format('HH:mm'));
     //FIRST TIME: PUSHED BACK ONE YEAR TO COME BEFORE CURRENT TIME
-    // var destConverted = moment(time,'hh:mm').subtract(1, 'years');
+   
     var destConverted = moment(childSnapshot.val().time, 'HH:mm').subtract(1, 'years');
     console.log("DATE CONVERTED: " + destConverted);
     var trainTime = moment(destConverted).format('HH:mm');
@@ -68,7 +66,7 @@ $(document).ready(function(){
     var timeConverted = moment(trainTime, 'HH:mm').subtract(1, 'years');
     var timeDifference = moment().diff(moment(timeConverted), 'minutes');
     console.log("DIFFERENCE IN TIME: " + timeDifference);
-    //REMAINDER 
+    // remainder 
     var tRemainder = timeDifference % freq;
     console.log("TIME REMAINING: " + tRemainder);
     //MINUTES UNTIL NEXT TRAIN
@@ -79,8 +77,7 @@ $(document).ready(function(){
     console.log("ARRIVAL TIME: " + moment(nextTrain).format('HH:mm A'));
     //console.log(==============================);
   
-   //TABLE DATA=====================================================
-   //APPEND TO DISPLAY IN TRAIN TABLE
+   // add data to table
   $('#currentTime').text(currentTime);
   $('#trainTable').append(
       "<tr><td id='nameDisplay'>" + childSnapshot.val().name +
