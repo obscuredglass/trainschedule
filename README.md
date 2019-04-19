@@ -10,7 +10,7 @@ This website will help show when your train is arriving. It also shows you how m
 6. jQuery
 7. Bootstrap
 
-[https://obscuredglass.github.io/trainschedule/]
+https://obscuredglass.github.io/trainschedule/
 
 Screenshot:
 ![show the site](/assets/images/screenshot.png)
